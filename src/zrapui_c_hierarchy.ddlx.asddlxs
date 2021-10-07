@@ -1,0 +1,58 @@
+@Metadata.layer: #CORE
+@UI:{
+  headerInfo :{
+    typeName: 'RAP Generator' ,
+    typeNamePlural: 'RAP Generated Hierarchy data'
+   }
+}
+annotate view ZRAPUI_C_HIERARCHY with
+{
+  @UI.facet: [
+
+    // Collection facet :
+    {  id : 'collectionfacet' ,
+       importance: #HIGH ,
+       type: #COLLECTION ,
+       label: 'RAP Hierarchy',
+       purpose: #STANDARD
+    } ,
+     // Collection facet - Field group reference --
+    {  parentId : 'collectionfacet' ,
+       id : 'RAPHierarchy' ,
+       type: #FIELDGROUP_REFERENCE ,
+       label: 'RAP Hierarchy details',
+       purpose: #STANDARD ,
+       targetQualifier: 'HierarchyDetails'
+    }
+   ]
+
+  @UI.hidden: true
+  ItemUuid;
+  @UI.hidden: true
+  HeaderUuid;
+  @UI.hidden: true
+  LinkUuid;
+
+  @UI.lineItem: [{ position: 10 , importance: #HIGH , label: 'Entity Name' }]
+  @UI.fieldGroup: [{ position: 10 , importance:  #HIGH , label: 'Entity Name' , qualifier: 'HierarchyDetails' }]
+  @UI.selectionField: [{ position: 10 }]
+  Entityname;
+
+  @UI.lineItem: [{ position: 20 , importance: #HIGH , label: 'Data Source' }]
+  @UI.fieldGroup: [{ position: 20 , importance:  #HIGH , label: 'Data Source' , qualifier: 'HierarchyDetails' }]
+  Datasource;
+
+  @UI.lineItem: [{ position: 30 , importance: #HIGH , label: 'Object Id' }]
+  @UI.fieldGroup: [{ position: 30 , importance:  #HIGH , label: 'Object Id' , qualifier: 'HierarchyDetails' }]
+  Objectid;
+
+  @UI.lineItem: [{ position: 40 , importance: #HIGH , label: 'Child UUID' }]
+  @UI.fieldGroup: [{ position: 40 , importance:  #HIGH , label: 'Child UUID' , qualifier: 'HierarchyDetails' }]
+  ChildUuid;
+
+  @UI.lineItem: [{ position: 50 , importance: #HIGH , label: 'Parent UUID' }]
+  @UI.fieldGroup: [{ position: 50 , importance:  #HIGH , label: 'Parent UUID' , qualifier: 'HierarchyDetails' }]
+  ParentUuid;
+
+
+}

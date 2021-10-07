@@ -1,0 +1,7 @@
+@EndUserText.label: 'RAP UI Service entity expose'
+define service ZRAPUI_SERV_DEF {
+  expose ZRAPUI_I_HEADER;
+  expose ZRAPUI_I_HIERARCHY;
+  expose ZRAPUI_C_HEADER;
+  expose ZRAPUI_C_HIERARCHY;
+}

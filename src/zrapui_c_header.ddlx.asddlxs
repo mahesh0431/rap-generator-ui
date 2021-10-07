@@ -30,7 +30,7 @@ annotate view ZRAPUI_C_HEADER with
       id : 'rapitemdetails' ,
       type: #LINEITEM_REFERENCE ,
       label: 'RAP Item details',
-      targetElement: '_items'
+      targetElement: '_hierarchy'
    }
   ]
 
@@ -51,7 +51,7 @@ annotate view ZRAPUI_C_HEADER with
 
   @UI.lineItem: [{ position: 40 , importance: #HIGH , label: 'RAP Package' }]
   @UI.fieldGroup: [{ position: 40 , importance:  #HIGH , label: 'RAP Package' , qualifier: 'ParentDetails' }]
-  RapPack;
+  RapPackage;
 
   @UI.lineItem: [{ position: 50 , importance: #HIGH , label: 'Draft Enabled' }]
   @UI.fieldGroup: [{ position: 50 , importance:  #HIGH , label: 'Draft Enabled' , qualifier: 'ParentDetails' }]
@@ -62,22 +62,17 @@ annotate view ZRAPUI_C_HEADER with
   @UI.selectionField: [{ position: 20 }]
   Entityname;
 
-  @UI.lineItem: [{ position: 70 , importance: #HIGH , label: 'Datasource' }]
-  @UI.fieldGroup: [{ position: 70 , importance:  #HIGH , label: 'Datasource' , qualifier: 'ParentDetails' }]
+  @UI.lineItem: [{ position: 70 , importance: #HIGH , label: 'Description' }]
+  @UI.fieldGroup: [{ position: 70 , importance:  #HIGH , label: 'Description' , qualifier: 'ParentDetails' }]
   @UI.selectionField: [{ position: 10 }]
-  Datasource;
+  Description;
 
-  @UI.lineItem: [{ position: 80 , importance: #HIGH , label: 'Object ID' }]
-  @UI.fieldGroup: [{ position: 80 , importance:  #HIGH , label: 'Object ID' , qualifier: 'ParentDetails' }]
-  Objectid;
-
-  @UI.lineItem: [{ position: 90 , importance: #MEDIUM , label: 'Parent UUID Name' }]
-  @UI.fieldGroup: [{ position: 90 , importance:  #HIGH , label: 'Parent UUID Name' , qualifier: 'ParentDetails' }]
-  ParentUuid;
-
-  @UI.lineItem: [{ position: 100 , importance: #LOW , label: 'Last Instance Datetime' }]
-  @UI.fieldGroup: [{ position: 100 , importance:  #HIGH , label: 'Last Instance Datetime' , qualifier: 'ParentDetails' }]
-  Etagmaster;
+  @UI.lineItem: [{ position: 80 , importance: #MEDIUM , label: 'last changeby' }]
+  @UI.fieldGroup: [{ position: 80 , importance:  #MEDIUM , label: 'last changeby' , qualifier: 'ParentDetails' }]
+  LastChangeby;
 
 
+  @UI.lineItem: [{ position: 90 , importance: #MEDIUM , label: 'LastChangeat' }]
+  @UI.fieldGroup: [{ position: 90 , importance:  #MEDIUM , label: 'LastChangeat' , qualifier: 'ParentDetails' }]
+  LastChangeat;
 }
