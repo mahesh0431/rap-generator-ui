@@ -1,0 +1,60 @@
+@Metadata.layer: #CORE
+@UI:{
+  headerInfo :{
+    typeName: 'RAP Child detail' ,
+    typeNamePlural: 'RAP Child details'
+   }
+}
+annotate view ZRAPUI_C_ITEMS with
+{
+  @UI.facet: [
+
+  // Collection facet :
+  {  id : 'collectionfacet' ,
+     importance: #HIGH ,
+     type: #COLLECTION ,
+     label: 'RAP Child details',
+     purpose: #STANDARD
+  } ,
+   // Collection facet - Field group reference -- PO Item
+  {  parentId : 'collectionfacet' ,
+     id : 'RAPHeaders' ,
+     type: #FIELDGROUP_REFERENCE ,
+     label: 'RAP child details',
+     purpose: #STANDARD ,
+     targetQualifier: 'childDetails'
+  }
+
+  ]
+
+  @UI.hidden: true
+  ItemUuid;
+
+  @UI.hidden: true
+  HeaderUuid;
+
+  @UI.lineItem: [{ position: 10 , importance: #HIGH , label: 'Entity Name' }]
+  @UI.fieldGroup: [{ position: 10 , importance:  #HIGH , label: 'Entity Name' , qualifier: 'childDetails' }]
+  Entityname;
+
+  @UI.lineItem: [{ position: 20 , importance: #HIGH , label: 'Datasource' }]
+  @UI.fieldGroup: [{ position: 20 , importance:  #HIGH , label: 'Datasource' , qualifier: 'childDetails' }]
+  Datasource;
+
+  @UI.lineItem: [{ position: 30 , importance: #HIGH , label: 'Object ID' }]
+  @UI.fieldGroup: [{ position: 30 , importance:  #HIGH , label: 'Object ID' , qualifier: 'childDetails' }]
+  Objectid;
+
+  @UI.lineItem: [{ position: 40 , importance: #MEDIUM , label: 'Child UUID Name' }]
+  @UI.fieldGroup: [{ position: 40 , importance:  #HIGH , label: 'Child UUID Name' , qualifier: 'childDetails' }]
+  ChildUuid;
+
+  @UI.lineItem: [{ position: 50 , importance: #MEDIUM , label: 'Parent UUID Name' }]
+  @UI.fieldGroup: [{ position: 50 , importance:  #HIGH , label: 'Parent UUID Name' , qualifier: 'childDetails' }]
+  ParentUuid;
+
+  @UI.lineItem: [{ position: 60 , importance: #LOW , label: 'Last Instance Datetime' }]
+  @UI.fieldGroup: [{ position: 60 , importance:  #HIGH , label: 'Last Instance Datetime' , qualifier: 'childDetails' }]
+  Etagmaster;
+
+}

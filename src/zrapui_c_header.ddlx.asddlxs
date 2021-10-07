@@ -1,0 +1,83 @@
+@Metadata.layer: #CORE
+@UI:{
+  headerInfo :{
+    typeName: 'RAP Generator' ,
+    typeNamePlural: 'RAP Generated Header data'
+   }
+}
+annotate view ZRAPUI_C_HEADER with
+{
+
+  @UI.facet: [
+
+   // Collection facet :
+   {  id : 'collectionfacet' ,
+      importance: #HIGH ,
+      type: #COLLECTION ,
+      label: 'RAP Headers',
+      purpose: #STANDARD
+   } ,
+    // Collection facet - Field group reference -- PO Item
+   {  parentId : 'collectionfacet' ,
+      id : 'RAPHeaders' ,
+      type: #FIELDGROUP_REFERENCE ,
+      label: 'RAP header details',
+      purpose: #STANDARD ,
+      targetQualifier: 'ParentDetails'
+   },
+   // Line item reference -- RAP Item details
+   {
+      id : 'rapitemdetails' ,
+      type: #LINEITEM_REFERENCE ,
+      label: 'RAP Item details',
+      targetElement: '_items'
+   }
+  ]
+
+  @UI.hidden: true
+  HeaderUuid;
+
+  @UI.lineItem: [{ position: 10 , importance: #HIGH , label: 'Datasource type' }]
+  @UI.fieldGroup: [{ position: 10 , importance:  #HIGH , label: 'Datasource type' , qualifier: 'ParentDetails' }]
+  Datasourcetype;
+
+  @UI.lineItem: [{ position: 20 , importance: #HIGH , label: 'Implementation type' }]
+  @UI.fieldGroup: [{ position: 20 , importance:  #HIGH , label: 'Implementation type' , qualifier: 'ParentDetails' }]
+  ImplementType;
+
+  @UI.lineItem: [{ position: 30 , importance: #HIGH , label: 'Binding type' }]
+  @UI.fieldGroup: [{ position: 30 , importance:  #HIGH , label: 'Binding type' , qualifier: 'ParentDetails' }]
+  BindType;
+
+  @UI.lineItem: [{ position: 40 , importance: #HIGH , label: 'RAP Package' }]
+  @UI.fieldGroup: [{ position: 40 , importance:  #HIGH , label: 'RAP Package' , qualifier: 'ParentDetails' }]
+  RapPack;
+
+  @UI.lineItem: [{ position: 50 , importance: #HIGH , label: 'Draft Enabled' }]
+  @UI.fieldGroup: [{ position: 50 , importance:  #HIGH , label: 'Draft Enabled' , qualifier: 'ParentDetails' }]
+  DraftEnable;
+
+  @UI.lineItem: [{ position: 60 , importance: #HIGH , label: 'Entity Name' }]
+  @UI.fieldGroup: [{ position: 60 , importance:  #HIGH , label: 'Entity Name' , qualifier: 'ParentDetails' }]
+  @UI.selectionField: [{ position: 20 }]
+  Entityname;
+
+  @UI.lineItem: [{ position: 70 , importance: #HIGH , label: 'Datasource' }]
+  @UI.fieldGroup: [{ position: 70 , importance:  #HIGH , label: 'Datasource' , qualifier: 'ParentDetails' }]
+  @UI.selectionField: [{ position: 10 }]
+  Datasource;
+
+  @UI.lineItem: [{ position: 80 , importance: #HIGH , label: 'Object ID' }]
+  @UI.fieldGroup: [{ position: 80 , importance:  #HIGH , label: 'Object ID' , qualifier: 'ParentDetails' }]
+  Objectid;
+
+  @UI.lineItem: [{ position: 90 , importance: #MEDIUM , label: 'Parent UUID Name' }]
+  @UI.fieldGroup: [{ position: 90 , importance:  #HIGH , label: 'Parent UUID Name' , qualifier: 'ParentDetails' }]
+  ParentUuid;
+
+  @UI.lineItem: [{ position: 100 , importance: #LOW , label: 'Last Instance Datetime' }]
+  @UI.fieldGroup: [{ position: 100 , importance:  #HIGH , label: 'Last Instance Datetime' , qualifier: 'ParentDetails' }]
+  Etagmaster;
+
+
+}
